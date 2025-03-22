@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-4dc$ary8a((z9*rh!vaqyx$*_y2cx^*^^%j$wq5i^u=m7i$hrc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+]
+
+INSTALLED_APPS += [
+    'SyncAsyncLab',
 ]
 
 MIDDLEWARE = [
