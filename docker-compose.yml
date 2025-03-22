@@ -1,0 +1,21 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+
+    # 바인드 마운트를 통해 /app 디렉토리에 마운트, 바로바로 확인 가능
+    volumes:
+      - .:/app
+
+    # 쉘을 통해 명령어 실행, 추후 스크립트도 실행 하기 위해
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
+    env_file:
+      - ./env/.local.env
+
+    # conf를 project settings로 변경 했기에 명시
+    environment:
+      - DJANGO_SETTINGS_MODULE=conf.settings
+
+#TODO nignx, db, network 추가 예정
