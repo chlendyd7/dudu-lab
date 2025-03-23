@@ -1,5 +1,7 @@
 # Django Performance Lab
 
+[Python, Django, gunicorn, uvicornn, rocust]
+
 이 프로젝트는 Django의 성능을 연구하고, 동기(Sync)와 비동기(Async) 처리 방식의 성능 차이를 비교하기 위한 실험을 수행하는 실험실(Lab)입니다. Docker를 사용하여 개발 환경을 구성하였으며, 다양한 테스트를 통해 성능을 측정하고 분석합니다.
 
 ## 프로젝트 구조
