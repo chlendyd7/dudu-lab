@@ -34,3 +34,6 @@ class MessageOnlyUser(HttpUser):
         except Exception as e:
             print(f"Send error: {str(e)}")
             sys.stdout.flush()
+
+
+# locust -f lab/SyncAsyncLab/sync/sync_locust.py --class-picker --host=http://localhost:8000   
