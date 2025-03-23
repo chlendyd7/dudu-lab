@@ -10,12 +10,23 @@ services:
 
     # 쉘을 통해 명령어 실행, 추후 스크립트도 실행 하기 위해
     command: >
-      sh -c "python manage.py runserver 0.0.0.0:8000"
+      sh -c "
+      export RUN_MODE=$RUN_MODE;
+      echo \"Running with RUN_MODE=$RUN_MODE\"; 
+      gunicorn -k gevent --workers=16 --bind 0.0.0.0:8000 conf.wsgi:application
+      # gunicorn --bind 0.0.0.0:8000 conf.wsgi:application;
+      # if [ \"$RUN_MODE\" = \"GUNICORN\" ]; then
+      #   echo \"Starting Gunicorn server...\"; 
+      # else
+      #   echo \"Starting Django development server...\"; 
+      #   python manage.py runserver 0.0.0.0:8000;
+      # fi"
     env_file:
       - ./env/.local.env
 
     # conf를 project settings로 변경 했기에 명시
     environment:
       - DJANGO_SETTINGS_MODULE=conf.settings
+      # RUN_MODE는 .local.env에서 가져오므로 여기에서는 주석 처리
 
 #TODO nignx, db, network 추가 예정

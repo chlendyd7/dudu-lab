@@ -1,0 +1,9 @@
+gunicorn 실행
+lab은 파이썬 모듈이 아니여서 cd 후 실행해야함
+docker compose run --rm web sh -c "cd lab && gunicorn --bind 0.0.0.0:8000 conf.wsgi:application"
+
+
+
+
+
+
